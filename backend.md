@@ -75,18 +75,19 @@ Gets info for a room.
 }
 ```
 
-- `POST /room/{dorm}/{room_number}`
+- `POST /pull/{suite_id}`
 
-Puts the current user into a room.
-
-- `POST /room/{dorm}/{room_number}/{student_id}`
-
-Puts a student into a room. Will email anyone who is bumped out as a result.
+Puts the current user into a suite. TODO: How this data will be structured
+is a bit unclear since I do not know all the possible ways to pull people in.
 
 ```
 {
-    students: [
+    room_number: "202D",
+    roommates: [
         "1234567890"
+    ],
+    pulls: [
+        // recursive structure
     ]
 }
 ```
