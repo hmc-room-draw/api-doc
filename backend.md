@@ -2,7 +2,7 @@
 
 ## Students
 
-- `POST /student/signup`
+- `POST /signup`
 
 Submits a JSON object containing _account_ info (password, etc), which is used
 to create an `Account` entry that is associated with a preexisting `Student`
@@ -18,7 +18,7 @@ Must be HTTPS-only.
 }
 ```
 
-- `POST /student/login`
+- `POST /login`
 
 Login. Must be HTTPS-only.
 
@@ -29,7 +29,7 @@ Login. Must be HTTPS-only.
 }
 ```
 
-- `POST /student/logout`
+- `POST /logout`
 
 Logout. Takes no params; current user is implied.
 
