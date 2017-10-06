@@ -1,38 +1,80 @@
 # Preliminary DB layout
 
-To deal with…
-* Privileges (student, admin, super-admin)
-* Google OAuth support
+Accounts support Google OAuth login.
+```
+Account
+  provider
+  uid
+  oauth_token
+  oauth_expires_at:datetime
+  email
+
+  has_one: Student (nullable)
+  has_one: Admin (nullable)
+```
 
 ```
-Account --- TBD: try to use Google OAuth
-  has_one: Student (nullable)
-
 Student
+  email: str
+  name: str
+  class: int
+  room_draw_num: int
+
   belongs_to: Account (nullable)
   belongs_to: Room (nullable)
-* name: str
-* email: str
-* student_id: str
-* year: int
-* room_draw_num: int
-* prev_room: (foreign key to Room)
+```
 
+```
+Admin
+  email: str
+  -- Some things related to roles/permissions; TODO: how to do this?
+
+  belongs_to: Account
+```
+
+```
+Dorm
+  -- TBD. Will need to store regulations.
+```
+
+```
+Suite
+  -- TBD. Will need to store regulations.
+
+  belongs_to: Dorm
+  has_many: Room
+```
+
+```
 Room
+  dorm: (Dorm id)
+  suite: (Suite id)
+  floor: int
+  room_num: str
+  capacity: int
+
   belongs_to: Suite
   has_many: Student
-* dorm: (foreign key to Dorm)
-* floor: int
-* suite: (foreign key to Suite)
-* room_num: str
-* capacity: int
+```
 
-Suite
-  has_many: Room
-* Description: string
-* Restrictions (only male/female etc): TBD
+```
+SurveyQuestion
+  id: int
+  question: string
+```
 
-Pull - TBD
+```
+SurveyResponse
+  answer: string
 
-Survey - TBD
+  belongs_to: SurveyQuestion
+```
+
+```
+Pull
+  suite: (Suite id)
+  room: (Room id)
+  timestamp: datetime
+
+  belongs_to: Student
 ```
