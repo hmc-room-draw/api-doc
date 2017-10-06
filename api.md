@@ -13,7 +13,7 @@ Gets the pull history (JSON with a list of pulls, see below).
 - `POST /pull/update`
 - `POST /pull/remove`
 
-Create/update/remove a pull.
+Create/update/remove a pull. Admin-only.
 
 ## Student
 
@@ -77,9 +77,13 @@ Creates/updates/deletes a question on the form. Admin-only.
 - `POST /suite/update/{id}`
 - `POST /suite/delete/{id}`
 
+Creates/updates/deletes a suite. Admin-only.
+
 - `POST /room/create`
 - `POST /room/update/{id}`
 - `POST /room/delete/{id}`
+
+Creates/updates/deletes a room. Admin-only.
 
 - `GET /room/{dorm}/{room_number}`
 
