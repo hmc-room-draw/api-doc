@@ -3,10 +3,11 @@
 Accounts support Google OAuth login.
 ```
 User
-  first_name: str
   last_name: str
+  first_name: str
   email: str
-  role: str
+  is_ashmc_admin: false
+  is_super_admin: false
 
   oauth_token: str
   oauth_expires_at:datetime
@@ -17,10 +18,10 @@ User
 ```
 Student
   class: int
-  room_draw_num: int
+  room_draw_number: int
   has_participated: false
 
-  belongs_to: Account (nullable)
+  belongs_to: User
   belongs_to: Room (nullable)
 ```
 
