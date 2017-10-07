@@ -3,11 +3,9 @@
 Accounts support Google OAuth login.
 ```
 User
-  provider: str
-  uid: str
+  email: str
   oauth_token: str
   oauth_expires_at:datetime
-  email: str
   role: str
 
   has_one: Student (nullable)
