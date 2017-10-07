@@ -2,15 +2,15 @@
 
 Accounts support Google OAuth login.
 ```
-Account
-  provider
-  uid
-  oauth_token
+User
+  provider: str
+  uid: str
+  oauth_token: str
   oauth_expires_at:datetime
-  email
+  email: str
+  role: str
 
   has_one: Student (nullable)
-  has_one: Admin (nullable)
 ```
 
 ```
@@ -22,14 +22,6 @@ Student
 
   belongs_to: Account (nullable)
   belongs_to: Room (nullable)
-```
-
-```
-Admin
-  email: str
-  -- Some things related to roles/permissions; TODO: how to do this?
-
-  belongs_to: Account
 ```
 
 ```
@@ -77,4 +69,12 @@ Pull
   timestamp: datetime
 
   belongs_to: Student
+```
+
+```
+Session
+    start: datetime
+    end: datetime
+    class: int          -- Freshman, sophomore, etc.
+                        -- TODO: figure out senior rounds later...
 ```
