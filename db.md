@@ -3,20 +3,22 @@
 Accounts support Google OAuth login.
 ```
 User
+  first_name: str
+  last_name: str
   email: str
+  role: str
+
   oauth_token: str
   oauth_expires_at:datetime
-  role: str
 
   has_one: Student (nullable)
 ```
 
 ```
 Student
-  email: str
-  name: str
   class: int
   room_draw_num: int
+  has_participated: false
 
   belongs_to: Account (nullable)
   belongs_to: Room (nullable)
