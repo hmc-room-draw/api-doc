@@ -22,7 +22,7 @@ Student
   has_participated: false
 
   belongs_to: User
-  belongs_to: Room (nullable)
+  has_one: Room (nullable)
 ```
 
 ```
