@@ -43,7 +43,7 @@ Room
   dorm: (Dorm id)
   suite: (Suite id)
   floor: int
-  room_num: str
+  number: str
   capacity: int
 
   belongs_to: Suite
